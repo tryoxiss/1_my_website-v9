@@ -14,13 +14,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 ---
 
-<script>
-	var stored_color = localStorage.getItem("hue");
-	var root_element = document.documentElement
-	if (stored_color != null)
-	{
-		root_element.style.setProperty("--hue", stored_color)
-	}
+<script is:inline>
+const hue = localStorage.getItem('hue');
+if (hue) { document.documentElement.style.setProperty('--hue', hue); }
+</script>
+
+<script is:inline>
+if ((window.location.hash == "") && (!window.location.href.endsWith("/")))
+{
+    window.history.replaceState(null, document.title, window.location.href + "/");
+}
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">

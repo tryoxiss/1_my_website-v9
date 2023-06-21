@@ -1,6 +1,5 @@
 :root { 
 	--hue: 275;
-
 	--background-color: hsl(var(--hue), 90%, 3%);
 
 	--decal-color: hsl(var(--hue), 50%, 15%);
@@ -10,6 +9,8 @@
 
 	--font-display: 'Mali';
 	--font-body: 'Atkinson Hyperlegible', sans-serif;
+
+	--border-radius: 6px;
 }
 
 body {
@@ -50,4 +51,8 @@ a, a:visited {
 
 a:hover { 
 	text-decoration: underline 1px solid var(--text-accent-color);
+}
+
+hr { 
+	border-top: 1px dotted var(--decal-color);
 }

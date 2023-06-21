@@ -89,30 +89,29 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<Header title={SITE_TITLE} />
 		<main>
             <p>
+                Customise the hue of this website! Almost all colors here are <code>hsl(a)</code> meaning they will match the color you set! This is applied to 
+                (most) pages, in most places. Exceptions being syntax hilghting, which inherntly needs more colors.
+            </p>
+            <p>
+                This part is inspired by <a href="https://basil.cafe/theme/">basil.cafe/theme/</a>, and 
+                <a href="https://tech.lgbt/@maddie/110579964601033216">basil even helped me implement it</a>!</p>
+            <p>
                 Hue: <span id="hue_int"></span>
-                (<a href="#reset" id="reset">Reset Color</a>)
+                (<a href="#" id="reset">Reset Color</a>)
             </p>
 
             <input type="range" min="0" max="360" value="50" class="color-slider" id="color_slider">
 		</main>
 		<Footer />
 	</body>
-    <script>
-var stored_color = localStorage.getItem("hue");
-var root_element = document.documentElement
-if (stored_color != null)
-{
-    slider.value = stored_color;
-    root_element.style.setProperty("--hue", stored_color)
-}
-    </script>
-    <script>
+    <script is:inline>
 var slider = document.getElementById("color_slider");
 var output = document.getElementById("hue_int");
 output.innerHTML = slider.value; // Display the default slider value
 var reset_button = document.getElementById("reset");
 
 reset_button.addEventListener("click", () => { 
+    localStorage.removeItem("hue")
     slider.value = 275;
     root_element.style.setProperty("--hue", 275)
     output.innerHTML = "275";

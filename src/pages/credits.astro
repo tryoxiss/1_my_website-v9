@@ -1,0 +1,35 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main>
+			<h1>Site Credits</h1>
+			<p>
+				Here is a list of (hopefully) everything I used and everyone that helped me build this site! If they did something like fact-checking 
+                or proofreading they will be credited on that page rather than this one.
+			</p>
+            <ul>
+                <li><a href="https://tech.lgbt/@maddie/110579964601033216">Basil</a> helped me remove the annoying flash for the customiseable hue. 
+                    (Like, it would flash the defult color before correcting itself)
+                </li>
+                <li>
+                    <a href="https://github.com/khaim0919">khaim0919</a> for code to always add a trailing <code>/</code> to pages if there is none.
+                </li>
+                <li>
+                    <a href="https://smolcss.dev/">smolcss</a> aspect ratio galleries.
+                </li>
+            </ul>
+		</main>
+		<Footer />
+	</body>
+</html>
