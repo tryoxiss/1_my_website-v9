@@ -1,0 +1,142 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!DOCTYPE html>
+<style>
+.color-slider {
+    --slider-saturation: 80%;
+    --slider-lightness: 50%;
+
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 10vw;  
+    background: linear-gradient(to right, 
+        hsl(0, var(--slider-saturation), var(--slider-lightness)), 
+        hsl(10, var(--slider-saturation), var(--slider-lightness)),
+        hsl(20, var(--slider-saturation), var(--slider-lightness)),
+        hsl(30, var(--slider-saturation), var(--slider-lightness)),
+        hsl(40, var(--slider-saturation), var(--slider-lightness)),
+        hsl(50, var(--slider-saturation), var(--slider-lightness)),
+        hsl(60, var(--slider-saturation), var(--slider-lightness)),
+        hsl(70, var(--slider-saturation), var(--slider-lightness)),
+        hsl(80, var(--slider-saturation), var(--slider-lightness)),
+        hsl(90, var(--slider-saturation), var(--slider-lightness)),
+
+        hsl(100, var(--slider-saturation), var(--slider-lightness)), 
+        hsl(110, var(--slider-saturation), var(--slider-lightness)),
+        hsl(120, var(--slider-saturation), var(--slider-lightness)),
+        hsl(130, var(--slider-saturation), var(--slider-lightness)),
+        hsl(140, var(--slider-saturation), var(--slider-lightness)),
+        hsl(150, var(--slider-saturation), var(--slider-lightness)),
+        hsl(160, var(--slider-saturation), var(--slider-lightness)),
+        hsl(170, var(--slider-saturation), var(--slider-lightness)),
+        hsl(180, var(--slider-saturation), var(--slider-lightness)),
+        hsl(190, var(--slider-saturation), var(--slider-lightness)),
+
+        hsl(200, var(--slider-saturation), var(--slider-lightness)), 
+        hsl(210, var(--slider-saturation), var(--slider-lightness)),
+        hsl(220, var(--slider-saturation), var(--slider-lightness)),
+        hsl(230, var(--slider-saturation), var(--slider-lightness)),
+        hsl(240, var(--slider-saturation), var(--slider-lightness)),
+        hsl(250, var(--slider-saturation), var(--slider-lightness)),
+        hsl(260, var(--slider-saturation), var(--slider-lightness)),
+        hsl(270, var(--slider-saturation), var(--slider-lightness)),
+        hsl(280, var(--slider-saturation), var(--slider-lightness)),
+        hsl(290, var(--slider-saturation), var(--slider-lightness)),
+
+        hsl(300, var(--slider-saturation), var(--slider-lightness)), 
+        hsl(310, var(--slider-saturation), var(--slider-lightness)),
+        hsl(320, var(--slider-saturation), var(--slider-lightness)),
+        hsl(330, var(--slider-saturation), var(--slider-lightness)),
+        hsl(340, var(--slider-saturation), var(--slider-lightness)),
+        hsl(350, var(--slider-saturation), var(--slider-lightness)),
+        hsl(360, var(--slider-saturation), var(--slider-lightness))
+        );
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.color-slider::-webkit-slider-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: transparent;
+    border: 3px solid #ffffff;
+    cursor: pointer;
+}
+
+.color-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: transparent;
+    border: 3px solid #ffffff;
+    cursor: pointer;
+}
+</style>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main>
+            <p>
+                Hue: <span id="hue_int"></span>
+                (<a href="#reset" id="reset">Reset Color</a>)
+            </p>
+
+            <input type="range" min="0" max="360" value="50" class="color-slider" id="color_slider">
+		</main>
+		<Footer />
+	</body>
+    <script>
+var stored_color = localStorage.getItem("hue");
+var root_element = document.documentElement
+if (stored_color != null)
+{
+    slider.value = stored_color;
+    root_element.style.setProperty("--hue", stored_color)
+}
+    </script>
+    <script>
+var slider = document.getElementById("color_slider");
+var output = document.getElementById("hue_int");
+output.innerHTML = slider.value; // Display the default slider value
+var reset_button = document.getElementById("reset");
+
+reset_button.addEventListener("click", () => { 
+    slider.value = 275;
+    root_element.style.setProperty("--hue", 275)
+    output.innerHTML = "275";
+});
+
+var stored_color = localStorage.getItem("hue");
+
+var root_element = document.documentElement
+
+if (stored_color != null)
+{
+    slider.value = stored_color;
+    root_element.style.setProperty("--hue", stored_color)
+}
+
+// slider.value = root_element.getProperty("--hue");
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+    output.innerHTML = this.value;
+
+    root_element.style.setProperty("--hue", this.value)
+    localStorage.setItem("hue", this.value)
+}
+
+    </script>
+</html>
