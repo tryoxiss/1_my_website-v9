@@ -3,22 +3,34 @@ import type { HTMLAttributes } from 'astro/types';
 
 type Props = HTMLAttributes<'a'>;
 
-const { href, class: className, ...props } = Astro.props;
+var { href, class: className, ...props } = Astro.props;
+
+// hisses at ts
+function add_trailing_slash(href: any)
+{
+	href = href.toString()
+
+	if ((href == "") || (href.endsWith("/"))) { return href }
+
+	return href + "/";
+}
+
+var uri: string = add_trailing_slash(href)
 
 const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, '');
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a href={uri}
+	class:list={[className, { active: isActive }]} {...props}>
 	<slot />
 </a>
 <style>
-	a {
-		display: inline-block;
-		text-decoration: none;
-	}
-	a.active {
-		font-weight: bolder;
-		text-decoration: underline;
-	}
+a {
+	display: inline-block;
+	margin-right: 10px;
+}
+a.active {
+	font-weight: bolder;
+}
 </style>

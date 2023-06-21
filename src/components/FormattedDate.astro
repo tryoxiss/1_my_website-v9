@@ -7,11 +7,10 @@ const { date } = Astro.props;
 ---
 
 <time datetime={date.toISOString()}>
+	{date.getDay()} 
 	{
-		date.toLocaleDateString('en-us', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-		})
-	}
+	// I can't declare a variable which leaves me with this terribleness
+	["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][date.getMonth()]
+	} 
+	{date.getFullYear()}
 </time>
