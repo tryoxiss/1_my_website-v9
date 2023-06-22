@@ -1,0 +1,48 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'a'>;
+
+var { href, class: className, ...props } = Astro.props;
+---
+
+<a href={href}
+	class:list={[className]} {...props}
+    class="button">
+	<slot />
+</a>
+<style is:inline>
+.button {
+	text-decoration: none;
+	display: inline-block;
+    padding: 0.75em 1.75em;
+    margin: 0.25rem;
+    border-radius: 100vmax;
+    
+    background-color: var(--component-color);
+
+    outline-offset: 4px;
+
+    transition-duration: 250ms;
+}
+.button:hover { 
+    text-decoration: none;
+    transform: translateY(-0.35em);
+}
+
+.button svg { 
+    transform: translateY(2px);
+    margin: 0;
+
+    width: 1rem;
+    height: 1rem;
+}
+
+.button.stroke-svg { 
+    stroke: currentColor;
+}
+
+.button.fill-svg { 
+    fill: currentColor;
+}
+</style>

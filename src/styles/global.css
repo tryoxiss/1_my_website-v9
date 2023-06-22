@@ -3,6 +3,7 @@
 	--background-color: hsl(var(--hue), 90%, 3%);
 
 	--decal-color: hsl(var(--hue), 50%, 15%);
+	--component-color: hsl(var(--hue), 80%, 9%);
 
 	--text-main-color: hsl(var(--hue), 80%, 84%);
 	--text-accent-color: hsl(var(--hue), 80%, 77%);
@@ -11,6 +12,19 @@
 	--font-body: 'Atkinson Hyperlegible', sans-serif;
 
 	--border-radius: 6px;
+}
+
+@media (prefers-color-scheme: light) {}
+@media (prefers-contrast: more) {}
+@media (forced-colors: active) {}
+
+* { 
+	scroll-behavior: smooth;
+	scroll-margin-top: 3.5rem;
+}
+
+*:focus { 
+	outline: 2px solid var(--text-accent-color);
 }
 
 body {
@@ -28,6 +42,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 { 
 	font-family: var(--font-display);
+	text-wrap: balance;
 }
 
 table {
