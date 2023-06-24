@@ -1,9 +1,12 @@
 :root { 
-	--hue: 275;
+	--hue: 190;
+	--pop-hue: calc(var(--hue) - 180);
+
 	--background-color: hsl(var(--hue), 90%, 3%);
 
+	--pop-color: hsl(var(--pop-hue), 50%, 60%);
 	--decal-color: hsl(var(--hue), 50%, 15%);
-	--component-color: hsl(var(--hue), 80%, 9%);
+	--component-color: hsl(var(--hue), 80%, 7%);
 
 	--text-main-color: hsl(var(--hue), 80%, 84%);
 	--text-accent-color: hsl(var(--hue), 80%, 77%);
@@ -23,8 +26,48 @@
 	scroll-margin-top: 3.5rem;
 }
 
-*:focus { 
+*:focus-visible { 
 	outline: 2px solid var(--text-accent-color);
+}
+
+::selection { 
+	background-color: var(--component-color);
+}
+
+li::marker { 
+	color: var(--decal-color);
+}
+
+ul li::marker { 
+	content: "⤏ ";
+}
+
+/* Pro/Con Lists */
+
+ul li.pro::marker { 
+	content: "+ ";
+}
+
+ul li.con::marker { 
+	content: "‒ ";
+}
+
+/* Checklists */
+
+ul li.done::marker { 
+	content: "✓ ";
+}
+
+ul li.notdone::marker { 
+	content: "✗ ";
+}
+
+mark {
+	background-color: var(--component-color);
+	color: inherit;
+
+	padding-inline: 0.25em;
+	border-radius: 3px;
 }
 
 body {
@@ -45,17 +88,54 @@ h1, h2, h3, h4, h5, h6 {
 	text-wrap: balance;
 }
 
-table {
-	width: 100%;
-}
-
 img {
 	max-width: 100%;
 	height: auto;
 }
 
-pre > code {
-	all: unset;
+table {
+	width: 100%;
+}
+
+table tr,
+table td,
+table th { 
+	padding: 4px;
+	border-radius: var(--border-radius);
+}
+
+table th,
+table tr:hover td { 
+	background-color: var(--component-color);
+}
+
+code,
+pre > code,
+pre:has(code) {
+	/* all: unset; */
+	word-wrap: pre;
+	font-family: monospace;
+	font-size: 1.1em;
+
+	background-color: var(--component-color);
+}
+
+pre,
+pre:has(code) { 
+	display: block;
+	width: 100%;
+	padding: 1em;
+	margin-block: 1em;
+	border-radius: var(--border-radius);
+
+	overflow: scroll;
+	max-height: 80ch;
+}
+
+
+code:not(pre code) { 
+	padding-inline: 0.25em;
+	border-radius: 3px;
 }
 
 a, a:visited { 

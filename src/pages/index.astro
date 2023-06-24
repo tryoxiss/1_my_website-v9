@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import Aside from '../components/Aside.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ImageGallery from '../components/ImageGallery.astro';
@@ -21,6 +22,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				template serves as a lightweight, minimally-styled starting point for anyone looking to build
 				a personal website, blog, or portfolio with Astro.
 			</p>
+			<Aside>
+				<p>My Content</p>
+			</Aside>
 			<p>
 				This template comes with a few integrations already configured in your
 				<code>astro.config.mjs</code> file. You can customize your setup with
@@ -35,11 +39,36 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
 				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
 			</ul>
+
+			<p>My girlfriend</p>
+
+			<ul>
+				<li class="pro">She is cute</li>
+				<li class="pro">I love her</li>
+				<li class="pro">She helps with code</li>
+				<li class="pro">She's a bit silly sometimes</li>
+				<li class="con">She gets on a nerves sometimes :sob:</li>
+			</ul>
+
+			<p>TODO!</p>
+
+			<ul>
+				<li class="done">Changing Colors</li>
+				<li class="done">Lists</li>
+				<li class="notdone">Image Galleries</li>
+				<li class="notdone">Everything else</li>
+				<li class="notdone">Go Live!</li>
+			</ul>
+
 			<p>
 				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
 					>read the docs
 				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
 			</p>
+
+			<pre><code>Here is some 
+	Code!!</code></pre>
+
 			<p>
 				Looking for a blog template with a bit more personality? Check out <a
 					href="https://github.com/Charca/astro-blog-template"

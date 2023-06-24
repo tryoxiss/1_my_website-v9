@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import Aside from '../components/Aside.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
@@ -95,10 +96,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             <p>
                 This part is inspired by <a href="https://basil.cafe/theme/">basil.cafe/theme/</a>, and 
                 <a href="https://tech.lgbt/@maddie/110579964601033216">basil even helped me implement it</a>!</p>
-            <p>
+            </p>
+            <Aside>
                 Hue: <span id="hue_int"></span>
                 (<a href="#" id="reset">Reset Color</a>)
-            </p>
+            </Aside>
 
             <input type="range" min="0" max="360" value="50" class="color-slider" id="color_slider">
 		</main>
@@ -112,9 +114,9 @@ var reset_button = document.getElementById("reset");
 
 reset_button.addEventListener("click", () => { 
     localStorage.removeItem("hue")
-    slider.value = 275;
-    root_element.style.setProperty("--hue", 275)
-    output.innerHTML = "275";
+    slider.value = 190;
+    root_element.style.setProperty("--hue", 190)
+    output.innerHTML = "190";
 });
 
 var stored_color = localStorage.getItem("hue");
