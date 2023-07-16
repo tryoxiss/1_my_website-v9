@@ -125,6 +125,7 @@ var root_element = document.documentElement
 
 if (stored_color != null)
 {
+    hue_int.innerHTML = stored_color;
     slider.value = stored_color;
     root_element.style.setProperty("--hue", stored_color)
 }
@@ -138,6 +139,5 @@ slider.oninput = function() {
     root_element.style.setProperty("--hue", this.value)
     localStorage.setItem("hue", this.value)
 }
-
     </script>
 </html>

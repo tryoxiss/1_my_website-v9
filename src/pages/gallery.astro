@@ -1,0 +1,33 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ImageGallery from '../components/ImageGallery.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body style="min-width: calc(100vw - 3rem);">
+        <style>
+        .behave-as-normal {
+            font-family: var(--font-body);
+            max-width: 65ch;
+            margin: auto;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            color: var(--text-main-color);
+        }
+        </style>
+		<Header title={SITE_TITLE} />
+            <p class="behave-as-normal" style="margin-top: 1rem;">I decided to make this full width since otherwise it feels a bit cramped. Sorry for it being diffrent from everything else, including every other image gallery, but this has everything and not just ocasional collections of concept art and such.</p>
+            <p class="behave-as-normal" style="margin-top: 1rem;">This also scales them all to the same aspect ratio, which I don't like. I want them to flow naturally resizing to fill the space while diaplaying in full and maintaining thier aspects. If anyone has code that can do this, please send it to me!</p>
+
+            <ImageGallery>
+			</ImageGallery>
+		<Footer />
+	</body>
+</html>

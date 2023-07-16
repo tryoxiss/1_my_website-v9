@@ -23,11 +23,29 @@
 
 * { 
 	scroll-behavior: smooth;
-	scroll-margin-top: 3.5rem;
+	scroll-margin-top: 8rem;
 }
 
 *:focus-visible { 
 	outline: 2px solid var(--text-accent-color);
+}
+
+/* *:target
+{
+	background-color: var(--component-color);
+} */
+
+/* *:not(li):target::before
+{
+	content: "⤏ ";
+	color: var(--pop-color)
+} */
+
+*:target
+{
+	background-color: var(--component-color);
+	outline: 1px dashed var(--text-main-color);
+	/* background-color: var(--component-color); */
 }
 
 ::selection { 
@@ -70,6 +88,11 @@ mark {
 	border-radius: 3px;
 }
 
+mark::selection
+{
+	background-color: var(--background-color);
+}
+
 body {
 	font-family: var(--font-body);
 	margin: auto;
@@ -107,6 +130,21 @@ table th {
 table th,
 table tr:hover td { 
 	background-color: var(--component-color);
+}
+
+code
+{
+	background-color: var(--component-color);
+	color: inherit;
+
+	padding-inline: 0.25em;
+	border-radius: 3px;
+}
+
+code::selection,
+.button::selection
+{
+	background-color: var(--background-color);
 }
 
 code,
@@ -150,4 +188,68 @@ a:hover {
 
 hr { 
 	border-top: 1px dotted var(--decal-color);
+}
+
+.text-svg {
+	width: 1rem;
+	height: 1rem;
+	translate: 0px 2px 0px;
+}
+
+.sr-only
+{
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	transform: 100vmax 100vmax 100vmax
+}
+
+blockquote
+{
+	margin-left: 0;
+	padding-left: 1rem;
+	border-left: 1px dashed var(--decal-color);
+	position: relative;
+}
+
+blockquote::before
+{
+	content: open-quote;
+	position: absolute;
+	color: var(--decal-color);
+	font-size: 5rem;
+	z-index: -1;
+
+	top: -2.5rem;
+	left: 0rem;
+}
+
+blockquote::after
+{
+	content: close-quote;
+	position: absolute;
+	color: var(--decal-color);
+	font-size: 5rem;
+	z-index: -1;
+
+	bottom: -2.5rem;
+	right: 0rem;
+}
+
+sup
+{
+	font-style: normal;
+}
+
+cite a
+{
+	text-decoration: 1px solid underline var(--text-accent-color);
+}
+
+del, s
+{
+	color: var(--decal-color);
+	text-decoration: 1px dashed line-through var(--text-accent-color);
+	/* text-decoration: 1px wavy line-through var(--text-accent-color); */
 }

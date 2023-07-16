@@ -1,0 +1,114 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			ul {
+				list-style-type: none;
+				padding: unset;
+			}
+			ul li {
+				display: flex;
+			}
+			ul li :global(time) {
+				flex: 0 0 120px;
+				text-align: right;
+				margin-right: 0.7em;
+			}
+			a { 
+				border-left: 1px dashed var(--decal-color);
+				padding-left: 0.7em;
+			}
+			.description {
+				color: var(--text-main-color);
+				text-decoration: underline 0px var(--background-color);
+			}
+            li p {
+                margin: 0;
+            }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+            <p>This page lists all non-secret pages. This website also has many secret/easter egg pages, feel free to try and find them!</p>
+			<ul>
+                <li>
+                    <a href="/links">
+                        Links
+                        <p class="description">All links that are important enough to share.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/changelog">
+                        Changelog
+                        <p class="description">Wonder how this has changed since 1.0? Heres the place to find out.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/credits">
+                        Credits
+                        <p class="description">All the people and libraries that helped make this site.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/gallery">
+                        Image Gallery
+                    	<p class="description">Prety pictures made by me and others.</p>
+                	</a>
+                </li>
+				<li>
+                    <a href="/dni">
+                        Do Not Interact List
+                    	<p class="description">"Do not interact if..."</p>
+                	</a>
+                </li>
+			</ul>
+			
+			<!-- <p>
+				I also run some other tools/services, which can be found here.
+			</p>
+
+			<ul>
+                <li>
+                    <a href="/links">
+                        Links
+                        <p class="description">All links that are important enough to share.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/changelog">
+                        Changelog
+                        <p class="description">Wonder how this has changed since 1.0? Heres the place to find out.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/credits">
+                        Credits
+                        <p class="description">All the people and libraries that helped make this site.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/gallery">
+                        Image Gallery
+                    	<p class="description">Prety pictures made by me and others.</p>
+                	</a>
+                </li>
+				<li>
+                    <a href="/dni">
+                        Do Not Interact List
+                    	<p class="description">"Do not interact if..."</p>
+                	</a>
+                </li>
+			</ul> -->
+		</main>
+		<Footer />
+	</body>
+</html>

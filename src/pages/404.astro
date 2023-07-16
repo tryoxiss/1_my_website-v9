@@ -1,0 +1,32 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title="You seem a bit lost | 404" description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main>
+            <style>
+                main { 
+                    text-align: center;
+                }
+            </style>
+            <h1 style="margin-bottom: 0px;">You seem a bit lost</h1>
+            <p style="margin-top: 0px;">Error: <code>https:404-Not-Found</code></p>
+            <p>No page exists here at <strong id="you-are-here"><code>this:find-uri-script</code></strong></p>
+            <p>You could try <a href="/sitemap">looking at the sitemap</a> or <a href="/">going home</a>.</p>
+            <p></p>
+		</main>
+        <script>
+document.getElementById("you-are-here").innerHTML = window.location.pathname
+        </script>
+		<Footer />
+	</body>
+</html>

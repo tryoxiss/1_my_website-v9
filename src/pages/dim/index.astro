@@ -46,7 +46,7 @@ const posts = (await getCollection('posts')).sort(
 			posts.map((post) => (
 				<li>
 					<!-- <FormattedDate date={post.data.pubDate} /> -->
-					<a href={`/posts/${post.slug}/`}>{post.data.title}<br />
+					<a href={`/dim/${post.slug}/`}>{post.data.title}<br />
 					<span class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span></a>
 				</li>
 			))
