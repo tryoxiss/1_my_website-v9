@@ -1,11 +1,28 @@
-:root { 
+:root {
 	--hue: 190;
 	--pop-hue: calc(var(--hue) - 180);
+
+	/* Brightest
+	 *
+	 * Text Main
+	 * Text Accent
+	 * Muted Color
+	 * Decal Color
+	 * Component Color
+	 * Background Color
+	 *
+	 * Darkest
+	 */
+
+	 /*
+	  * MAKE A SCRIPT THAT LETS ME EXPORT SETS OF THESE HSL VALUES TO
+	  * HEX FOR MY TERMINAL THEME!!
+	  */
 
 	--background-color: hsl(var(--hue), 90%, 3%);
 
 	--pop-color: hsl(var(--pop-hue), 50%, 60%);
-	--decal-color: hsl(var(--hue), 50%, 15%);
+	--decal-color: hsl(var(--hue), 60%, 40%);
 	--component-color: hsl(var(--hue), 80%, 7%);
 
 	--text-main-color: hsl(var(--hue), 80%, 84%);
@@ -14,6 +31,7 @@
 	--font-display: 'Mali';
 	--font-body: 'Atkinson Hyperlegible', sans-serif;
 
+	--border-inline-radius: 2px;
 	--border-radius: 6px;
 }
 
@@ -28,6 +46,11 @@
 
 *:focus-visible { 
 	outline: 2px solid var(--text-accent-color);
+}
+
+text
+{
+	display: block;
 }
 
 /* *:target
@@ -106,9 +129,15 @@ body {
 	color: var(--text-main-color);
 }
 
-h1, h2, h3, h4, h5, h6 { 
+h1, h2, h3, h4, h5, h6 {
 	font-family: var(--font-display);
 	text-wrap: balance;
+	margin-block: 1rem;
+}
+
+h3, h4, h5, h6
+{
+	font-size: 1rem;
 }
 
 img {
@@ -132,48 +161,33 @@ table tr:hover td {
 	background-color: var(--component-color);
 }
 
-code
-{
-	background-color: var(--component-color);
-	color: inherit;
-
-	padding-inline: 0.25em;
-	border-radius: 3px;
-}
-
 code::selection,
 .button::selection
 {
 	background-color: var(--background-color);
 }
 
-code,
-pre > code,
-pre:has(code) {
-	/* all: unset; */
-	word-wrap: pre;
-	font-family: monospace;
-	font-size: 1.1em;
-
+pre, code
+{
 	background-color: var(--component-color);
+
+	font-family: 'Fira Code', 'FiraCode', 'Hack', monospace;
+	font-size: 0.9em;
+
+	font-variant-ligatures: none;
+	font-feature-settings: "liga" 0;
 }
 
-pre,
-pre:has(code) { 
-	display: block;
-	width: 100%;
-	padding: 1em;
-	margin-block: 1em;
+pre
+{
+	padding: 0.5em;
 	border-radius: var(--border-radius);
-
-	overflow: scroll;
-	max-height: 80ch;
 }
 
-
-code:not(pre code) { 
-	padding-inline: 0.25em;
-	border-radius: 3px;
+code:not(pre code)
+{
+	padding-inline: 4px;
+	border-radius: var(--border-inline-radius);
 }
 
 a, a:visited { 
@@ -215,6 +229,7 @@ blockquote
 
 blockquote::before
 {
+	opacity: 0.25;
 	content: open-quote;
 	position: absolute;
 	color: var(--decal-color);
@@ -227,6 +242,7 @@ blockquote::before
 
 blockquote::after
 {
+	opacity: 0.25;
 	content: close-quote;
 	position: absolute;
 	color: var(--decal-color);
@@ -252,4 +268,14 @@ del, s
 	color: var(--decal-color);
 	text-decoration: 1px dashed line-through var(--text-accent-color);
 	/* text-decoration: 1px wavy line-through var(--text-accent-color); */
+}
+
+.dead-link
+{
+	text-decoration: line-through 1px solid;
+}
+
+.dead-link:hover
+{
+	text-decoration-line: line-through underline;
 }

@@ -1,0 +1,67 @@
+/* SOURCE: https://youtube.com/shorts/GLB-JTYfa8M?si=Cwl6KyWFt4k_H78y */
+
+/* Felxibly group elements */
+.cluster {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Cluster but they will always take up the entire width.
+ * Will wrap as needed and each row is indepent of the others. */
+.flexible-grid {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.flexible-grid > * {
+    flex: 1;
+}
+
+/* Auto sized grid */
+.auto-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat
+    (
+        auto-fit,
+        minmax
+        (
+            10rem,
+            100%
+        ),
+        1fr
+    );
+}
+
+/* HScroll box */
+.reel {
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: column;
+    grid-auto-columns: 45%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 1rem;
+}
+
+/* Idk why this is useful */
+.main-with-sidebar { 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 1em;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.main-with-sidebar > :first-child { 
+    flex-basis: 500px;
+    flex-grow: 9999;
+}
+
+.main-with-sidebar > :last-child {
+    flex-basis: 300px;
+    flex-grow: 1;
+}

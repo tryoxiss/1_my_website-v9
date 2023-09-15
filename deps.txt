@@ -1,0 +1,2 @@
+https://github.com/thewebforge/astro-code-blocks#readme
+npx astro add @thewebforge/astro-code-blocks

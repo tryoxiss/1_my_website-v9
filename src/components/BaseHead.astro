@@ -51,3 +51,41 @@ if ((window.location.hash == "") && (!window.location.href.endsWith("/")))
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Block people using google DRM -->
+<!-- When I self host I will implemenet this on my server and simply not serve
+  -- the content so that they can't just disable JavaScript. -->
+<script is:inline defer>
+console.log("mew")
+
+document.addEventListener('DOMContentLoaded', () => check_google_drm());
+
+function delete_dom()
+{
+	alert("Your browser contains google DRM. In support of an open web, this website\
+simply will not function in any browser that supports this. See the new page for\
+more details.");
+	console.log("Deleting DOM");
+	
+	document.body.innerHTML='<h1>Your browser contains Google DRM</h1>"Web Environment Integrity"\
+       is a Google euphemism for a "Lets make the web google-only, that is designed to prevent ad-blocking, tracker-blocking,\
+       any any use of free and open standards or technologies. In support of an open web, this website does not function with\
+       this DRM. Please install a browser such as <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> that\
+       respects your freedom and supports ad and tracker blockers, and your freedom.';
+}
+
+function check_google_drm()
+{
+	if (navigator.getEnvironmentIntegrity!==undefined)
+	{
+		console.warn("Found google DRM (getEnviornmentIntegrity)");
+		delete_dom();
+	};
+}
+
+//if (navigator.getEnvironmentIntegrity===undefined)
+//{
+//	console.warn("Found google DRM (getEnviornmentIntegrity)");
+//	delete_dom();
+//};
+</script>

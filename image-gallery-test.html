@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+img {
+    max-width: 100%;
+}
+
+.image-gallery {
+    outline: 5px solid palegreen;
+    padding: 1em;
+
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.image-gallery img {
+    max-width: 25%;
+    object-fit: cover;
+
+    width: 100%;
+    height: auto;
+}
+</style>
+<body>
+    <div class="image-gallery">
+        <img src="https://images.unsplash.com/photo-1681256172484-382b53af7ff6" alt="">
+        <img src="https://images.unsplash.com/photo-1691147923232-284a3949a72e" alt="">
+        <img src="https://images.unsplash.com/photo-1692606526191-1bf0e3c39487" alt="">
+        <img src="https://images.unsplash.com/photo-1691094552409-a8377d99c7cb" alt="">
+    </div>
+    <p>All images on this document are from unsplash.</p>
+</body>
+</html>
